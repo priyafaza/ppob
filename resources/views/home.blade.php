@@ -16,7 +16,6 @@
     </div>
     <!-- * App Header -->
 
-
     <!-- App Capsule -->
     <div id="appCapsule">
 
@@ -29,8 +28,12 @@
                         <span class="title">Total Transaksi Bulan ini</span>
                         <h1 class="total">Rp. {{ number_format($tx_now,0,'.',',') }}</h1>
                     </div>
+                    <div align="right">
+                        <img src='/assets/img/wallet.png' style="height: 75px; width: 75px;">
+                    </div>
                 </div>
                 <!-- * Balance -->
+
             </div>
         </div>
         <!-- Wallet Card -->

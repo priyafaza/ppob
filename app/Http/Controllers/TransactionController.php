@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 class TransactionController extends Controller
 {
     public function index(){
-
         $transactions = Transaksi::orderBy('status','asc')->orderBy('id','desc')->get();
         return view('transaction.index',[
             'transactions'=>$transactions
