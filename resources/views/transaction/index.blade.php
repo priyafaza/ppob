@@ -20,36 +20,25 @@
         <!-- Transactions -->
         <div class="section mt-2">
             <div class="transactions">
-                <!-- item -->
-                <a href="transaction-detail.html" class="item">
+                @foreach($transactions as $transaksi)
+                <a href="/transaction/{{ $transaksi->id }}" class="item">
                     <div class="detail">
-                        <img src="assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
+                        <img src="/assets/img/product/{{ $transaksi->id_product }}.jpg" alt="img" class="image-block imaged w48">
                         <div>
-                            <strong>Listrik 100,000</strong>
-                            <p>Mas Gendon </p>
+                            <strong>{{ \App\Product::find($transaksi->id_product)->nama }} {{ number_format($transaksi->nominal, 0,'.',',') }}</strong>
+                            <p>{{ \App\Pelanggan::find($transaksi->id_pelanggan)->username }}</p>
                         </div>
                     </div>
                     <div class="right">
-                        <div class="price text-dark"> Rp. 101,000</div>
-                        <span class="badge badge-success">Lunas</span>
+                        <div class="price text-dark"> Rp. {{ number_format($transaksi->harga_jual, 0,'.',',') }}</div>
+                        @if($transaksi->status == \App\Transaksi::STATUS_LUNAS)
+                            <span class="badge badge-success">Lunas</span>
+                        @else
+                            <span class="badge badge-warning">Bon</span>
+                        @endif
                     </div>
                 </a>
-                <!-- * item -->
-                <!-- item -->
-                <a href="transaction-detail.html" class="item">
-                    <div class="detail">
-                        <img src="assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
-                        <div>
-                            <strong>Listrik 100,000</strong>
-                            <p>Mas Gendon </p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="price text-danger"> Rp. 101,000</div>
-                        <span class="badge badge-warning">Bon</span>
-                    </div>
-                </a>
-                <!-- * item -->
+                @endforeach
             </div>
         </div>
         <!-- * Transactions -->

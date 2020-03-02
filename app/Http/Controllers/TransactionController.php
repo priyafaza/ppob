@@ -13,9 +13,17 @@ class TransactionController extends Controller
 {
     public function index(){
 
+        $transactions = Transaksi::orderBy('status','asc')->orderBy('id','desc')->get();
         return view('transaction.index',[
+            'transactions'=>$transactions
+        ]);
+    }
 
-            ]);
+    public function detail($id){
+        $transaksi = Transaksi::find($id);
+        return view('transaction.detail',[
+            'transaksi'=>$transaksi
+        ]);
     }
 
     public function create(){

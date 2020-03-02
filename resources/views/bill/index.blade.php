@@ -15,48 +15,22 @@
         <!-- Transactions -->
         <div class="section mt-2">
             <div class="transactions">
-                <!-- item -->
-                <a href="bill-detail.html" class="item">
+
+                @foreach($list as $ini)
+                <a href="/bill/{{ $ini->id_pelanggan }}" class="item">
                     <div class="detail">
-                        <img src="assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
+                        <img src="/assets/img/users/{{ \App\Pelanggan::find($ini->id_pelanggan)->foto }}" alt="img" class="image-block imaged w48">
                         <div>
-                            <strong>Mas Gendon</strong>
-                            <p>12 Transaksi</p>
+                            <strong>{{ \App\Pelanggan::find($ini->id_pelanggan)->username }}</strong>
+                            <p>{{ $ini->transaksi }} Transaksi</p>
                         </div>
                     </div>
                     <div class="right">
-                        <div class="price text-danger"> Rp. 880,000</div>
+                        <div class="price text-danger"> Rp. {{ number_format($ini->harga,0,'.',',') }}</div>
                     </div>
                 </a>
-                <!-- * item -->
-                <!-- item -->
-                <a href="bill-detail.html" class="item">
-                    <div class="detail">
-                        <img src="assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
-                        <div>
-                            <strong>Mas Sahid</strong>
-                            <p>2 Transaksi</p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="price text-danger"> Rp. 80,000</div>
-                    </div>
-                </a>
-                <!-- * item -->
-                <!-- item -->
-                <a href="bill-detail.html" class="item">
-                    <div class="detail">
-                        <img src="assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
-                        <div>
-                            <strong>Kecomel</strong>
-                            <p>1 Transaksi</p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="price text-danger"> Rp. 50,000</div>
-                    </div>
-                </a>
-                <!-- * item -->
+                @endforeach
+
             </div>
         </div>
         <!-- * Transactions -->

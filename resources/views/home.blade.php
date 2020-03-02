@@ -19,7 +19,7 @@
                 <div class="balance">
                     <div class="left">
                         <span class="title">Total Transaksi Bulan ini</span>
-                        <h1 class="total">Rp. 1,000,000</h1>
+                        <h1 class="total">Rp. {{ number_format($tx_now,0,'.',',') }}</h1>
                     </div>
                 </div>
                 <!-- * Balance -->
@@ -32,13 +32,13 @@
                 <div class="col-6">
                     <div class="stat-box">
                         <div class="title">Keuntungan Bulan Ini</div>
-                        <div class="value text-success">Rp. 120,000</div>
+                        <div class="value text-success">Rp. {{ number_format($profit_now,0,'.',',') }}</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="stat-box">
                         <div class="title">Modal Bulan Ini</div>
-                        <div class="value text-danger">Rp. 880,000</div>
+                        <div class="value text-danger">Rp. {{ number_format($modal_now,0,'.',',') }}</div>
                     </div>
                 </div>
             </div>
@@ -46,13 +46,13 @@
                 <div class="col-6">
                     <div class="stat-box">
                         <div class="title">Total Keuntungan</div>
-                        <div class="value">Rp. 465,000</div>
+                        <div class="value">Rp. {{ number_format($profit_all,0,'.',',') }}</div>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="stat-box">
                         <div class="title">Total Modal</div>
-                        <div class="value">Rp. 12,000,000</div>
+                        <div class="value">Rp. {{ number_format($modal_all,0,'.',',') }}</div>
                     </div>
                 </div>
             </div>
@@ -66,44 +66,20 @@
             </div>
             <div class="transactions">
 
-                <a href="transaction-detail.html" class="item">
-                    <div class="detail">
-                        <img src="/assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
-                        <div>
-                            <strong>Mas Gendon</strong>
-                            <p>Plampang</p>
+                @foreach($list as $ini)
+                    <a href="#" class="item">
+                        <div class="detail">
+                            <img src="/assets/img/users/{{ \App\Pelanggan::find($ini->id_pelanggan)->foto }}" alt="img" class="image-block imaged w48">
+                            <div>
+                                <strong>{{ \App\Pelanggan::find($ini->id_pelanggan)->username }}</strong>
+                                <p>{{ $ini->transaksi }} Transaksi</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="right">
-                        <div class="price text-black"> Rp. 700,000</div>
-                    </div>
-                </a>
-
-                <a href="transaction-detail.html" class="item">
-                    <div class="detail">
-                        <img src="/assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
-                        <div>
-                            <strong>Kecomel</strong>
-                            <p>kecomel</p>
+                        <div class="right">
+                            <div class="price text-danger"> Rp. {{ number_format($ini->harga,0,'.',',') }}</div>
                         </div>
-                    </div>
-                    <div class="right">
-                        <div class="price text-black"> Rp. 400,000</div>
-                    </div>
-                </a>
-
-                <a href="transaction-detail.html" class="item">
-                    <div class="detail">
-                        <img src="/assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
-                        <div>
-                            <strong>Mas Sahid</strong>
-                            <p>Plampang</p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="price text-black"> Rp. 100,000</div>
-                    </div>
-                </a>
+                    </a>
+                @endforeach
 
             </div>
         </div>
