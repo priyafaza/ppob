@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index');
 Route::get('/bill', 'HomeController@bill');
 Route::get('/bill/{id}', 'HomeController@billDetail');
+Route::post('/bill/{id}', 'HomeController@bayar');
 
 Route::get('/transaction', 'TransactionController@index');
 Route::get('/transaction-create', 'TransactionController@create');

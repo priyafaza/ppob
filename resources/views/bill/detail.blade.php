@@ -53,7 +53,10 @@
         </div>
 
         <div class="section mt-2 mb-2">
-            <a href="" class="btn btn-primary btn-block btn-lg">Bayar</a>
+            <form action="/bill/{{ $pelanggan->id }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Bayar</button>
+            </form>
         </div>
 
     </div>

@@ -35,6 +35,7 @@ class HomeController extends Controller
             'list'=>$list
         ]);
     }
+
     public function bill(){
         $list = DB::table('table_transaksi')
             ->selectRaw('id_pelanggan, sum(harga_jual) as harga, count(harga_jual) as transaksi')
@@ -46,6 +47,7 @@ class HomeController extends Controller
             'list'=>$list
         ]);
     }
+
     public function billDetail($id){
         $pelanggan = Pelanggan::find($id);
         $total = Transaksi::where('id_pelanggan',$id)->where('status',Transaksi::STATUS_BON)->get()->sum('harga_jual');
@@ -56,12 +58,25 @@ class HomeController extends Controller
             'jumlah'=>$jumlah
         ]);
     }
+
+    public function bayar($id){
+        $transactions = Transaksi::where('id_pelanggan',$id)->where('status',Transaksi::STATUS_BON)->get();
+        foreach ($transactions as $transaction){
+            $tx = Transaksi::find($transaction->id);
+            $tx->status = Transaksi::STATUS_LUNAS;
+            $tx->save();
+        }
+
+        return redirect('/bill');
+    }
+
     public function product(){
         $products = Product::orderBy('status','desc')->orderBy('id','asc')->get();
         return view('product',[
             'products'=>$products
         ]);
     }
+
     public function productOn(Request $request, $id){
         $product = Product::find($id);
         $product->status = 1;
@@ -69,6 +84,7 @@ class HomeController extends Controller
 
         return redirect()->back();
     }
+
     public function productOff(Request $request, $id){
         $product = Product::find($id);
         $product->status = 0;
