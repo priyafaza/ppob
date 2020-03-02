@@ -22,38 +22,32 @@
             <!-- waiting tab -->
             <div class="tab-pane fade show active" id="waiting" role="tabpanel">
                 <div class="row">
+                    @foreach($products as $product)
                     <div class="col-6 mb-2">
-                        <div class="bill-box">
+                        <div class="bill-box" style="background: {{ $product->status == \App\Product::STATUS_ACTIVE?'#fff':'#ddd' }}">
                             <div class="img-wrapper">
-                                <img src="assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
+                                <img src="/assets/img/product/{{ $product->logo }}" alt="img" class="image-block imaged w48">
                             </div>
-                            <div class="price">Pulsa</div>
-                            <a href="#" class="btn btn-primary btn-block btn-sm">Matikan</a>
+                            <div class="price">{{ $product->nama }}</div>
+                            @if($product->status == \App\Product::STATUS_ACTIVE)
+                                <form action="/product/off/{{ $product->id }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-block btn-sm">Matikan</button>
+                                </form>
+                            @else
+                                <form action="/product/on/{{ $product->id }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success btn-block btn-sm">Hidupkan</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
-
+                    @endforeach
                 </div>
             </div>
             <!-- * waiting tab -->
 
 
-
-            <!-- paid tab -->
-            <div class="tab-pane fade" id="paid" role="tabpanel">
-                <div class="row">
-                    <div class="col-6 mb-2">
-                        <div class="bill-box">
-                            <div class="img-wrapper">
-                                <img src="assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged w48">
-                            </div>
-                            <div class="price">$ 14</div>
-                            <p>Prime Monthly Subscription</p>
-                            <a href="#" class="btn btn-primary btn-block btn-sm">DETAIL</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- * paid tab -->
 
         </div>
 

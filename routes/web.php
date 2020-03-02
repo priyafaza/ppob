@@ -23,5 +23,10 @@ Route::post('/transaction', 'TransactionController@save');
 Route::get('/transaction/{id}', 'TransactionController@detail');
 
 Route::get('/product', 'HomeController@product');
+Route::post('/product/on/{id}', 'HomeController@productOn');
+Route::post('/product/off/{id}', 'HomeController@productOff');
+
 Route::get('/users', 'UserController@index');
+Route::post('/users/on/{id}', 'UserController@userOn');
+Route::post('/users/off/{id}', 'UserController@userOff');
 

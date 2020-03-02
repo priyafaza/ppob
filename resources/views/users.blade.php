@@ -22,18 +22,30 @@
             <!-- waiting tab -->
             <div class="tab-pane fade show active" id="waiting" role="tabpanel">
                 <div class="row">
+                    @foreach($users as $user)
                     <div class="col-6 mb-2">
-                        <div class="bill-box">
+                        <div class="bill-box" style="background: {{ $user->status == \App\Pelanggan::STATUS_ACTIVE?'#fff':'#ddd' }}">
                             <div class="img-wrapper">
-                                <img src="assets/img/sample/brand/1.jpg" alt="img" class="image-block imaged" style="width: 100%; height: auto;">
+                                <img src="/assets/img/users/{{ $user->foto }}" alt="img" class="image-block imaged" style="width: 100%; height: auto;">
                             </div>
-                            <div class="price">Mas gendon</div>
-                            <p>Bambang Susanto, PlampangRejo</p>
-                            <a href="#" class="btn btn-primary btn-block btn-sm">Blokir</a>
-                            <a href="#" class="btn btn-success btn-block btn-sm">Hubungi</a>
+                            <div class="price">{{ $user->username }}</div>
+                            <p>{{ $user->nama }}, {{ $user->alamat }}</p>
+                            @if($user->status == \App\Pelanggan::STATUS_ACTIVE)
+                                <form action="/users/off/{{ $user->id }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-block btn-sm">Blokir</button>
+                                </form>
+                            @else
+                                <form action="/users/on/{{ $user->id }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success btn-block btn-sm">Aktifkan</button>
+                                </form>
+                            @endif
+
+                            <a style="margin-top: 10px" href="https://wa.me/{{ $user->no_hp }}" class="btn btn-primary btn-block btn-sm">Hubungi</a>
                         </div>
                     </div>
-
+                    @endforeach
                 </div>
             </div>
             <!-- * waiting tab -->
