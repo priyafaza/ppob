@@ -13,7 +13,7 @@ class AlterProductAddStatus extends Migration
      */
     public function up()
     {
-        Schema::table('table_pelanggan',function (Blueprint $table){
+        Schema::table('table_product',function (Blueprint $table){
             $table->boolean('status');
         });
     }
