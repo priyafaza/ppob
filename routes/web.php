@@ -17,10 +17,12 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index');
 Route::get('/bill', 'HomeController@bill');
 Route::get('/bill/{id}', 'HomeController@billDetail');
+
 Route::get('/transaction', 'TransactionController@index');
 Route::get('/transaction-create', 'TransactionController@create');
 Route::post('/transaction', 'TransactionController@save');
 Route::get('/transaction/{id}', 'TransactionController@detail');
+Route::post('/transaction/add', 'TransactionController@add');
 
 Route::get('/product', 'HomeController@product');
 Route::post('/product/on/{id}', 'HomeController@productOn');

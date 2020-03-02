@@ -19,15 +19,15 @@
             <div class="section-title">Date : {{ now() }}</div>
             <div class="wide-block pb-1 pt-2">
 
-                <form>
+                <form action="/transaction/add" method="POST">
+                    @csrf
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="city5">Pelanggan</label>
-                            <select class="form-control custom-select" id="city5">
-                                <option value="0">Pilih Pelanggan</option>
-                                <option value="1">New York City</option>
-                                <option value="2">Austin</option>
-                                <option value="3">Colorado</option>
+                            <select class="form-control custom-select" id="city5" name="pelanggan">
+                                @foreach($pelanggan as $user)
+                                    <option value="{{ $user->id }}">{{ $user->nama }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -35,11 +35,10 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="city5">Product</label>
-                            <select class="form-control custom-select" id="city5">
-                                <option value="0">Pilih Product</option>
-                                <option value="1">New York City</option>
-                                <option value="2">Austin</option>
-                                <option value="3">Colorado</option>
+                            <select class="form-control custom-select" id="city5" name="product">
+                                @foreach($products as $product)
+                                    <option value="{{ $product->id }}">{{ $product->nama }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -47,7 +46,7 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="address5">Deskripsi</label>
-                            <textarea id="address5" rows="2" class="form-control"></textarea>
+                            <textarea id="address5" rows="2" class="form-control" name="deskripsi"></textarea>
                             <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                         </div>
                     </div>
@@ -55,7 +54,7 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="email5">Nominal</label>
-                            <input type="number" class="form-control" id="email5" placeholder="Nominal">
+                            <input type="number" class="form-control" id="email5" placeholder="Nominal" name="nominal">
                             <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                         </div>
                     </div>
@@ -63,7 +62,7 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="password5">Harga Jual</label>
-                            <input type="number" class="form-control" id="password5" placeholder="Harga Jual">
+                            <input type="number" class="form-control" id="password5" placeholder="Harga Jual" name="harga_jual">
                             <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                         </div>
                     </div>
@@ -71,14 +70,14 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="phone5">Harga Beli</label>
-                            <input type="number" class="form-control" id="phone5" placeholder="Harga Beli">
+                            <input type="number" class="form-control" id="phone5" placeholder="Harga Beli" name="harga_beli">
                             <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                         </div>
                     </div>
                     <br>
                     <div class="form-group boxed">
                         <div class="input-wrapper">
-                            <a href="" class="btn btn-primary btn-block btn-lg">Simpan</a>
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">Simpan</button>
                             <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                         </div>
                     </div>
