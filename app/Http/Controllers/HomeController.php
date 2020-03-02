@@ -5,11 +5,19 @@ namespace App\Http\Controllers;
 use App\Pelanggan;
 use App\Product;
 use App\Transaksi;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
+    public function pin(){
+        if(auth()->user()){
+            return redirect('/home');
+        }
+        return view('pin');
+    }
+
     public function index(){
         $tx_now = Transaksi::whereMonth('created_at',now()->format('m'))->get()->sum('harga_jual');
         $modal_now = Transaksi::whereMonth('created_at',now()->format('m'))->get()->sum('harga_beli');
@@ -34,6 +42,21 @@ class HomeController extends Controller
             'profit_all'=>$profit_all,
             'list'=>$list
         ]);
+    }
+
+    public function login(Request $request){
+        $request->validate([
+            'password'=>'required|string|min:6|max:6'
+        ]);
+        if($request->password == env('APP_PASSWORD')){
+            $user = User::first();
+            if(!is_null($user)){
+                auth()->login($user);
+                return redirect('/home');
+            }
+        } else {
+            return redirect()->back();
+        }
     }
 
     public function bill(){
