@@ -5,6 +5,14 @@
         <div class="pageTitle">
             <img src="/assets/img/logo.png" alt="logo" class="logo">
         </div>
+        <div class="right">
+            <a href="#" class="headerButton goBack" onclick="document.getElementById('form-logout').submit()">
+                <ion-icon name="exit-outline"></ion-icon>
+            </a>
+        </div>
+        <form id="form-logout" method="POST" action="/logout" style="display: none">
+            @csrf
+        </form>
     </div>
     <!-- * App Header -->
 
