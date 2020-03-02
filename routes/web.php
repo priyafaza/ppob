@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pin');
 });
+Route::get('/home', 'HomeController@index');
+Route::get('/bill', 'HomeController@bill');
+Route::get('/bill/{id}', 'HomeController@billDetail');
+Route::get('/transaction', 'TransactionController@index');
+Route::get('/transaction-create', 'TransactionController@create');
+Route::post('/transaction', 'TransactionController@save');
+Route::get('/transaction/{id}', 'TransactionController@detail');
+
+Route::get('/product', 'HomeController@product');
+Route::get('/users', 'UserController@index');
+
