@@ -37,7 +37,7 @@
                 </li>
                 <li>
                     <strong>No Hp</strong>
-                    <span><a href="https://api.whatsapp.com/send?phone={{ $pelanggan->no_hp}}">+{{ $pelanggan->no_hp }}</a></span>
+                    <span><a href="https://api.whatsapp.com/send?phone={{ $pelanggan->no_hp}}&text=Hello">+{{ $pelanggan->no_hp }}</a></span>
                 </li>
                 <li>
                     <strong>Total Transaksi</strong>

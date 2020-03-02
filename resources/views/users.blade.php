@@ -42,7 +42,7 @@
                                 </form>
                             @endif
 
-                            <a style="margin-top: 10px" href="https://api.whatsapp.com/send?phone={{ $user->no_hp }}" class="btn btn-primary btn-block btn-sm">Hubungi</a>
+                            <a style="margin-top: 10px" href="https://api.whatsapp.com/send?phone={{ $user->no_hp }}&text=Hello" class="btn btn-primary btn-block btn-sm">Hubungi</a>
                         </div>
                     </div>
                     @endforeach
