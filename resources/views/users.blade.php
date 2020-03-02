@@ -7,9 +7,9 @@
             Pelanggan Saya
         </div>
         <div class="right">
-            <a href="javascript:;" class="headerButton">
-                <ion-icon name="add-outline"></ion-icon>
-            </a>
+            {{--<a href="javascript:;" class="headerButton">--}}
+                {{--<ion-icon name="add-outline"></ion-icon>--}}
+            {{--</a>--}}
         </div>
     </div>
     <!-- * App Header -->

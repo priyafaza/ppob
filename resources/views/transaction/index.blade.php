@@ -6,7 +6,7 @@
             Transaksi
         </div>
         <div class="right">
-            <a href="javascript:;" class="headerButton">
+            <a href="/transaction-create" class="headerButton">
                 <ion-icon name="add-outline"></ion-icon>
             </a>
         </div>
