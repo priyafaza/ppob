@@ -50,9 +50,6 @@ class TransactionController extends Controller
             $data->nominal = $request->nominal;
             $data->save();
         });
-        return redirect()->back()->with([
-            'message'=>'Data Transaksi di Simpan',
-            'type'=>'success'
-        ]);
+        return redirect('/transaction');
     }
 }
