@@ -55,7 +55,7 @@ class HomeController extends Controller
                 return redirect('/home');
             }
         } else {
-            return redirect()->back();
+            return redirect()->back()->withErrors('PIN Salah');
         }
     }
 

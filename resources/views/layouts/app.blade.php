@@ -12,6 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/assets/img/favicon.png" sizes="32x32">
     <link rel="shortcut icon" href="/assets/img/favicon.png">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,7 @@
 
 @yield('content')
 
-
+@include('notification')
 <!-- ///////////// Js Files ////////////////////  -->
 <!-- Jquery -->
 <script src="/assets/js/lib/jquery-3.4.1.min.js"></script>
