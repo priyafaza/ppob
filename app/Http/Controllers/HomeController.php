@@ -95,7 +95,7 @@ class HomeController extends Controller
 
             $tx = Transaksi::find($transaction->id);
             $tx->status = Transaksi::STATUS_LUNAS;
-//            $tx->save();
+            $tx->save();
         }
 
         $log = new Log();
