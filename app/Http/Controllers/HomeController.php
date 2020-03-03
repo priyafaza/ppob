@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\Pelanggan;
 use App\Product;
 use App\Transaksi;
@@ -84,14 +85,27 @@ class HomeController extends Controller
     }
 
     public function bayar($id){
+        $pelanggan = Pelanggan::find($id);
         $transactions = Transaksi::where('id_pelanggan',$id)->where('status',Transaksi::STATUS_BON)->get();
+        $nomor_tx = 'Nomor transaksi yang terbayar : ';
+        $tagihan = 0;
         foreach ($transactions as $transaction){
+            $nomor_tx .= $transaction->id.', ';
+            $tagihan+=$transaction->harga_jual;
+
             $tx = Transaksi::find($transaction->id);
             $tx->status = Transaksi::STATUS_LUNAS;
-            $tx->save();
+//            $tx->save();
         }
 
-        return redirect('/bill');
+        $log = new Log();
+        $log->id_pelanggan = $id;
+        $log->tagihan = $tagihan;
+        $log->detail = $nomor_tx;
+        $log->status = Log::STATUS_LUNAS;
+        $log->save();
+        $url = "https://api.whatsapp.com/send?phone={{ $pelanggan->no_hp}}&text=Halo {{ $pelanggan->username }},%0APada hari ini, tanggal {{ now()->format('d F Y') }}, Tagihanmu sebesar Rp. ".number_format($tagihan,0,'.',',')." Sudah saya nyatakan *LUNAS*. Terima Kasih.%0A%0AIjlik%0A_Pesan ini dibuat otomatis_";
+        return redirect($url);
     }
 
     public function product(){

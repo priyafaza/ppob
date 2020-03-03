@@ -15,8 +15,10 @@ class CreateLogTable extends Migration
     {
         Schema::create('log', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_pelanggan');
+            $table->integer('tagihan');
             $table->string('detail');
-            $table->integer('status');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
