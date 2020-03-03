@@ -24,7 +24,7 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="city5">Pelanggan</label>
-                            <select class="form-control custom-select" id="city5" name="pelanggan">
+                            <select class="form-control custom-select" id="city5" name="pelanggan" required>
                                 @foreach($pelanggan as $user)
                                     <option value="{{ $user->id }}">{{ $user->nama }}</option>
                                 @endforeach
@@ -35,7 +35,7 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="city5">Product</label>
-                            <select class="form-control custom-select" id="city5" name="product">
+                            <select class="form-control custom-select" id="city5" name="product" required>
                                 @foreach($products as $product)
                                     <option value="{{ $product->id }}">{{ $product->nama }}</option>
                                 @endforeach
@@ -46,7 +46,7 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="address5">Deskripsi</label>
-                            <textarea id="address5" rows="2" class="form-control" name="deskripsi"></textarea>
+                            <textarea id="address5" rows="2" class="form-control" name="deskripsi" required></textarea>
                             <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="email5">Nominal</label>
-                            <input type="number" class="form-control" id="email5" placeholder="Nominal" name="nominal">
+                            <input type="number" class="form-control" id="email5" placeholder="Nominal" name="nominal" required>
                             <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="password5">Harga Jual</label>
-                            <input type="number" class="form-control" id="password5" placeholder="Harga Jual" name="harga_jual">
+                            <input type="number" class="form-control" id="password5" placeholder="Harga Jual" name="harga_jual" required>
                             <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <label class="label" for="phone5">Harga Beli</label>
-                            <input type="number" class="form-control" id="phone5" placeholder="Harga Beli" name="harga_beli">
+                            <input type="number" class="form-control" id="phone5" placeholder="Harga Beli" name="harga_beli" required>
                             <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                         </div>
                     </div>
