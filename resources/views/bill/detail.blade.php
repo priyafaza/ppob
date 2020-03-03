@@ -55,7 +55,7 @@
         <div class="section mt-2 mb-2">
             <form action="/bill/{{ $pelanggan->id }}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-primary btn-block btn-lg">Bayar</button>
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Sudah di Bayar</button>
             </form>
         </div>
 
