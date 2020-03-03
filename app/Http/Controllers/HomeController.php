@@ -64,6 +64,7 @@ class HomeController extends Controller
             ->selectRaw('id_pelanggan, sum(harga_jual) as harga, count(harga_jual) as transaksi')
             ->where('status',Transaksi::STATUS_BON)
             ->groupBy('id_pelanggan')
+            ->orderBy('harga','desc')
             ->get();
 
         return view('bill.index',[
