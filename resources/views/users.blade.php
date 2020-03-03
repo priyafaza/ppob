@@ -33,16 +33,16 @@
                             @if($user->status == \App\Pelanggan::STATUS_ACTIVE)
                                 <form action="/users/off/{{ $user->id }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger btn-block btn-sm">Blokir</button>
+                                    <button type="submit" class="btn btn-danger btn-block btn-sm"><ion-icon name="eye-off-outline"></ion-icon> Blokir</button>
                                 </form>
                             @else
                                 <form action="/users/on/{{ $user->id }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-success btn-block btn-sm">Aktifkan</button>
+                                    <button type="submit" class="btn btn-primary btn-block btn-sm"><ion-icon name="eye-outline"></ion-icon> Aktifkan</button>
                                 </form>
                             @endif
 
-                            <a style="margin-top: 10px" href="https://api.whatsapp.com/send?phone={{ $user->no_hp }}" class="btn btn-primary btn-block btn-sm">Hubungi</a>
+                            <a style="margin-top: 10px" href="https://api.whatsapp.com/send?phone={{ $user->no_hp }}" class="btn btn-success btn-block btn-sm"><ion-icon name="logo-whatsapp"></ion-icon> Hubungi</a>
                         </div>
                     </div>
                     @endforeach

@@ -32,12 +32,12 @@
                             @if($product->status == \App\Product::STATUS_ACTIVE)
                                 <form action="/product/off/{{ $product->id }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger btn-block btn-sm">Matikan</button>
+                                    <button type="submit" class="btn btn-danger btn-block btn-sm"><ion-icon name="eye-off-outline"></ion-icon> Matikan</button>
                                 </form>
                             @else
                                 <form action="/product/on/{{ $product->id }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-success btn-block btn-sm">Hidupkan</button>
+                                    <button type="submit" class="btn btn-primary btn-block btn-sm"><ion-icon name="eye-outline"></ion-icon> Hidupkan</button>
                                 </form>
                             @endif
                         </div>
