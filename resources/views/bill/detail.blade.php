@@ -59,5 +59,9 @@
             </form>
         </div>
 
+        <div class="section mt-2 mb-2">
+            <a href="https://api.whatsapp.com/send?phone={{ $pelanggan->no_hp}}&text=Halo {{ $pelanggan->username }}, Sekedar mengingatkan bahwa per tanggal {{ now()->format('d F Y') }}, {{ $pelanggan->username }} sudah ngutang sebanyak {{ $jumlah }} kali dengan total tagihan sementara sebesar Rp. {{ number_format($total,0,'.',',') }}. Nanti kalo ada transaksi baru bakalan di kasih tau lagi. Terima Kasih." type="submit" class="btn btn-success btn-block btn-lg"><ion-icon name="logo-whatsapp"></ion-icon> Kirim Tagihan</a>
+        </div>
+
     </div>
 @stop
