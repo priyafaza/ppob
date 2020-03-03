@@ -104,7 +104,7 @@ class HomeController extends Controller
         $log->detail = $nomor_tx;
         $log->status = Log::STATUS_LUNAS;
         $log->save();
-        $url = "https://api.whatsapp.com/send?phone={{ $pelanggan->no_hp}}&text=Halo {{ $pelanggan->username }},%0APada hari ini, tanggal {{ now()->format('d F Y') }}, Tagihanmu sebesar Rp. ".number_format($tagihan,0,'.',',')." Sudah saya nyatakan *LUNAS*. Terima Kasih.%0A%0AIjlik%0A_Pesan ini dibuat otomatis_";
+        $url = "https://api.whatsapp.com/send?phone=$pelanggan->no_hp&text=Halo $pelanggan->username ,%0APada hari ini, tanggal ".now()->format('d F Y').", Tagihanmu sebesar Rp. ".number_format($tagihan,0,'.',',').",%0ASudah saya nyatakan *LUNAS*. Terima Kasih.%0A%0AIjlik%0A_Pesan ini dibuat otomatis_";
         return redirect($url);
     }
 
