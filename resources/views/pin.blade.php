@@ -4,6 +4,7 @@
     <div id="appCapsule">
 
         <div class="section mt-2 text-center">
+            <img src="/assets/img/logo-color.png" style="margin-bottom: 100px;width: 50%; height: auto;">
             <h1>Password</h1>
             <h4>Enter password to open Application</h4>
         </div>
