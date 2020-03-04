@@ -98,9 +98,9 @@
                             <div class="input-wrapper">
                                 <label class="label" for="city4">Pelanggan</label>
                                 <select class="form-control custom-select" id="city4" name="pelanggan">
-                                    <option value="all">Semua Pelanggan</option>
-                                    @foreach(\App\Pelanggan::all() as $pelanggan)
-                                        <option value="{{ $pelanggan->id }}">{{ $pelanggan->nama }}</option>
+                                    <option value="all" {{ $pelanggan == 0?'selected':'' }}>Semua Pelanggan</option>
+                                    @foreach(\App\Pelanggan::all() as $pel)
+                                        <option value="{{ $pel->id }}" {{ $pelanggan == $pel->id?'selected':'' }}>{{ $pel->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -111,9 +111,9 @@
                             <div class="input-wrapper">
                                 <label class="label" for="city4">Status</label>
                                 <select class="form-control custom-select" id="city4" name="status">
-                                    <option value="all">Semua status</option>
-                                    <option value="{{ \App\Transaksi::STATUS_BON }}">Bon</option>
-                                    <option value="{{ \App\Transaksi::STATUS_LUNAS }}">Lunas</option>
+                                    <option value="all" {{ $status == 5?'selected':'' }}>Semua status</option>
+                                    <option value="{{ \App\Transaksi::STATUS_BON }}" {{ $status == \App\Transaksi::STATUS_BON?'selected':'' }}>Bon</option>
+                                    <option value="{{ \App\Transaksi::STATUS_LUNAS }}" {{ $status == \App\Transaksi::STATUS_BON?'selected':'' }}>Lunas</option>
                                 </select>
                             </div>
                         </div>

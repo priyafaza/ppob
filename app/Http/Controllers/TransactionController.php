@@ -34,7 +34,9 @@ class TransactionController extends Controller
         }
         $transactions = $transactions->orderBy('status','asc')->orderBy('id','desc')->get();
         return view('transaction.index',[
-            'transactions'=>$transactions
+            'transactions'=>$transactions,
+            'pelanggan'=>$pelanggan,
+            'status'=>$status
         ]);
     }
 
