@@ -113,7 +113,7 @@
                                 <select class="form-control custom-select" id="city4" name="status">
                                     <option value="all" {{ $status == 5?'selected':'' }}>Semua status</option>
                                     <option value="{{ \App\Transaksi::STATUS_BON }}" {{ $status == \App\Transaksi::STATUS_BON?'selected':'' }}>Bon</option>
-                                    <option value="{{ \App\Transaksi::STATUS_LUNAS }}" {{ $status == \App\Transaksi::STATUS_BON?'selected':'' }}>Lunas</option>
+                                    <option value="{{ \App\Transaksi::STATUS_LUNAS }}" {{ $status == \App\Transaksi::STATUS_LUNAS?'selected':'' }}>Lunas</option>
                                 </select>
                             </div>
                         </div>
