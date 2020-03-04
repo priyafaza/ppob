@@ -2,6 +2,11 @@
 @section('content')
     <!-- App Header -->
     <div class="appHeader bg-primary text-light">
+        <div class="left">
+            <a href="#" class="headerButton" data-toggle="modal" data-target="#sidebarPanel">
+                <ion-icon name="funnel-outline"></ion-icon>
+            </a>
+        </div>
         <div class="pageTitle">
             Transaksi
         </div>
@@ -79,4 +84,44 @@
         </a>
     </div>
     <!-- * App Bottom Menu -->
+    <div class="modal fade panelbox panelbox-left" id="sidebarPanel" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <!-- profile box -->
+                    <div class="profileBox pt-2 pb-2">
+                        <h2>Filter berdasarkan</h2>
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="city4">Pelanggan</label>
+                                <select class="form-control custom-select" id="city4" name="pelanggan">
+                                    <option value="all">Semua Pelanggan</option>
+                                    @foreach(\App\Pelanggan::all() as $pelanggan)
+                                        <option value="{{ $pelanggan->id }}">{{ $pelanggan->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="city4">Status</label>
+                                <select class="form-control custom-select" id="city4">
+                                    <option value="all">Semua status</option>
+                                    <option value="{{ \App\Transaksi::STATUS_BON }}">Bon</option>
+                                    <option value="{{ \App\Transaksi::STATUS_LUNAS }}">Lunas</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <button class="btn btn-primary btn-block" type="submit">Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
