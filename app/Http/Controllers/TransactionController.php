@@ -25,6 +25,15 @@ class TransactionController extends Controller
         ]);
     }
 
+    public function delete(Request $request,$id){
+        $tx = Transaksi::find($id);
+        $tx->delete();
+        return redirect('/transaction')->with([
+            'message'=>'Data telah terhapus',
+            'type'=>'success'
+        ]);
+    }
+
     public function create(){
         $pelanggan = Pelanggan::where('status',1)->get();
         $products = Product::where('status',1)->get();

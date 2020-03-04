@@ -38,6 +38,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('/transaction', 'TransactionController@save');
     Route::get('/transaction/{id}', 'TransactionController@detail');
     Route::post('/transaction/add', 'TransactionController@add');
+    Route::post('/transaction/delete/{id}', 'TransactionController@delete');
 
     Route::get('/product', 'HomeController@product');
     Route::post('/product/on/{id}', 'HomeController@productOn');

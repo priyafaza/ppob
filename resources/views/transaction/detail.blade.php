@@ -10,6 +10,14 @@
         <div class="pageTitle">
             Detail Transaksi
         </div>
+        <div class="right">
+            <a href="#" onclick="document.getElementById('form-delete').submit()" class="headerButton">
+                <ion-icon name="trash-outline"></ion-icon>
+            </a>
+        </div>
+        <form id="form-delete" action="/transaction/delete/{id}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </div>
     <!-- * App Header -->
 
