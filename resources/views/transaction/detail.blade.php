@@ -15,7 +15,7 @@
                 <ion-icon name="trash-outline"></ion-icon>
             </a>
         </div>
-        <form id="form-delete" action="/transaction/delete/{id}" method="POST" style="display: none;">
+        <form id="form-delete" action="/transaction/delete/{{$transaksi->id}}" method="POST" style="display: none;">
             @csrf
         </form>
     </div>
