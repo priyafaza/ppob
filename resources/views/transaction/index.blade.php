@@ -89,6 +89,7 @@
             <div class="modal-content">
                 <div class="modal-body p-0">
                     <!-- profile box -->
+                    <form action="" method="GET">
                     <div class="profileBox pt-2 pb-2">
                         <h2>Filter berdasarkan</h2>
                     </div>
@@ -124,6 +125,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
