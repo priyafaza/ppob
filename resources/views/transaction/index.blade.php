@@ -91,6 +91,8 @@
                     <!-- profile box -->
                     <div class="profileBox pt-2 pb-2">
                         <h2>Filter berdasarkan</h2>
+                    </div>
+                    <div class="profileBox pt-2 pb-2">
                         <div class="form-group basic">
                             <div class="input-wrapper">
                                 <label class="label" for="city4">Pelanggan</label>
@@ -102,7 +104,8 @@
                                 </select>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="profileBox pt-2 pb-2">
                         <div class="form-group basic">
                             <div class="input-wrapper">
                                 <label class="label" for="city4">Status</label>
@@ -113,7 +116,8 @@
                                 </select>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="profileBox pt-2 pb-2">
                         <div class="form-group basic">
                             <div class="input-wrapper">
                                 <button class="btn btn-primary btn-block" type="submit">Filter</button>
