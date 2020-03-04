@@ -110,7 +110,7 @@
                         <div class="form-group basic">
                             <div class="input-wrapper">
                                 <label class="label" for="city4">Status</label>
-                                <select class="form-control custom-select" id="city4">
+                                <select class="form-control custom-select" id="city4" name="status">
                                     <option value="all">Semua status</option>
                                     <option value="{{ \App\Transaksi::STATUS_BON }}">Bon</option>
                                     <option value="{{ \App\Transaksi::STATUS_LUNAS }}">Lunas</option>

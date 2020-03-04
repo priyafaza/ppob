@@ -12,7 +12,27 @@ use Illuminate\Support\Facades\DB;
 class TransactionController extends Controller
 {
     public function index(){
-        $transactions = Transaksi::orderBy('status','asc')->orderBy('id','desc')->get();
+        $pelanggan = 0;
+        $status = 5;
+        if(isset($_GET['pelanggan'])){
+            if($_GET['pelanggan'] != 'all'){
+                $pelanggan = $_GET['pelanggan'];
+            }
+        }
+        if(isset($_GET['status'])){
+            if($_GET['status'] != 'all'){
+                $status = $_GET['status'];
+            }
+        }
+
+        $transactions = Transaksi::where('id','>',0);
+        if($pelanggan != 0){
+            $transactions = $transactions->where('id_pelanggan',$pelanggan);
+        }
+        if($status != 5){
+            $transactions = $transactions->where('status',$status);
+        }
+        $transactions = $transactions->orderBy('status','asc')->orderBy('id','desc')->get();
         return view('transaction.index',[
             'transactions'=>$transactions
         ]);
