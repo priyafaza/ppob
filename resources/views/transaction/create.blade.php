@@ -19,7 +19,7 @@
             <div class="section-title">Date : {{ now() }}</div>
             <div class="wide-block pb-1 pt-2">
 
-                <form action="/transaction/add" method="POST">
+                <form action="/transaction/add" method="POST" onsubmit="document.getElementById('btn-simpan').type='button';">
                     @csrf
                     <div class="form-group boxed">
                         <div class="input-wrapper">
@@ -77,7 +77,7 @@
                     <br>
                     <div class="form-group boxed">
                         <div class="input-wrapper">
-                            <button type="submit" class="btn btn-primary btn-block btn-lg">Simpan</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn-simpan">Simpan</button>
                             <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                         </div>
                     </div>
