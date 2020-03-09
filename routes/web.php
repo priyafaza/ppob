@@ -47,5 +47,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::get('/users', 'UserController@index');
     Route::post('/users/on/{id}', 'UserController@userOn');
     Route::post('/users/off/{id}', 'UserController@userOff');
+    Route::get('/users/add','UserController@create');
+    Route::post('/users/add','UserController@save');
 
 });

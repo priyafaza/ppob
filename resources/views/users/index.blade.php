@@ -7,9 +7,9 @@
             Pelanggan Saya
         </div>
         <div class="right">
-            {{--<a href="javascript:;" class="headerButton">--}}
-                {{--<ion-icon name="add-outline"></ion-icon>--}}
-            {{--</a>--}}
+            <a href="/users/add" class="headerButton">
+                <ion-icon name="add-outline"></ion-icon>
+            </a>
         </div>
     </div>
     <!-- * App Header -->
@@ -26,7 +26,11 @@
                     <div class="col-6 mb-2">
                         <div class="bill-box" style="background: {{ $user->status == \App\Pelanggan::STATUS_ACTIVE?'#fff':'#ddd' }}">
                             <div class="img-wrapper">
-                                <img src="/assets/img/users/{{ $user->foto }}" alt="img" class="image-block imaged" style="width: 100%; height: auto;">
+                                @if($user->id > 3)
+                                    <img src="{{ $user->foto }}" alt="img" class="image-block imaged" style="width: 100%; height: auto;">
+                                @else
+                                    <img src="/assets/img/users/{{ $user->foto }}" alt="img" class="image-block imaged" style="width: 100%; height: auto;">
+                                @endif
                             </div>
                             <div class="price">{{ $user->username }}</div>
                             <p>{{ $user->nama }}, {{ $user->alamat }}</p>

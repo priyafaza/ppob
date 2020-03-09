@@ -39,7 +39,7 @@
 <!-- Base Js File -->
 <script src="/assets/js/base.js"></script>
 
-
+@yield('script')
 </body>
 
 </html>
