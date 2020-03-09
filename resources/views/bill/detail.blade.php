@@ -21,7 +21,11 @@
 
             <div class="listed-detail mt-3">
                 <div class="icon-wrapper">
+                    @if($pelanggan->id > 3)
+                    <img src="{{ $pelanggan->foto }}" alt="img" class="imaged" style="width: 150px; height: auto;">
+                    @else
                     <img src="/assets/img/users/{{ $pelanggan->foto }}" alt="img" class="imaged" style="width: 150px; height: auto;">
+                    @endif
                 </div>
                 <h3 class="text-center mt-2">{{ $pelanggan->username }}</h3>
             </div>
