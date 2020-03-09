@@ -80,7 +80,7 @@
                 @foreach($list as $ini)
                     <a href="#" class="item">
                         <div class="detail">
-                            @if($ini->id >3)
+                            @if($ini->id_pelanggan >3)
                                 <img src="{{ \App\Pelanggan::find($ini->id_pelanggan)->foto }}" alt="img" class="image-block imaged w48">
                             @else
                                 <img src="/assets/img/users/{{ \App\Pelanggan::find($ini->id_pelanggan)->foto }}" alt="img" class="image-block imaged w48">
