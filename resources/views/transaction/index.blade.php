@@ -23,7 +23,6 @@
     <div id="appCapsule">
 
         <!-- Transactions -->
-{{--        transaksi--}}
         <div class="section mt-2">
             <div class="transactions">
                 @foreach($transactions as $transaksi)
